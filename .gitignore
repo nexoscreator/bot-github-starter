@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# TypeScript build output
+/dist/
+/lib/
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# IDEs
+.idea/
+.vscode/
+
+# OS-generated files
+Thumbs.db
+.DS_Store

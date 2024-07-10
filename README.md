@@ -1,33 +1,33 @@
-# nexos-bot-app
+# My First Probot App
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that A Nexos Automation Bot
+This is a GitHub App built with [Probot](https://github.com/probot/probot) that automates various GitHub workflows.
 
 ## Setup
 
-```sh
-# Install dependencies
-npm install
+1. Install dependencies:
 
-# Run the bot
-npm start
-```
+    ```bash
+    npm install
+    ```
 
-## Docker
+2. Create a `.env` file with the following variables:
 
-```sh
-# 1. Build container
-docker build -t nexos-bot-app .
+    ```
+    APP_ID=your_app_id
+    PRIVATE_KEY=path_to_your_private_key.pem
+    WEBHOOK_SECRET=your_webhook_secret
+    ```
 
-# 2. Start container
-docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> nexos-bot-app
-```
+3. Start the app:
 
-## Contributing
+    ```bash
+    npm start
+    ```
 
-If you have suggestions for how nexos-bot-app could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+4. Expose your local server using `ngrok`:
 
-For more, check out the [Contributing Guide](CONTRIBUTING.md).
+    ```bash
+    ngrok http 3000
+    ```
 
-## License
-
-[ISC](LICENSE) © 2024 Nexos Creator
+5. Update your GitHub App's Webhook URL to the `ngrok` URL.
