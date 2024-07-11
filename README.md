@@ -1,6 +1,10 @@
-# My First Probot App
+# Nexos Bot
 
 This is a GitHub App built with [Probot](https://github.com/probot/probot) that automates various GitHub workflows.
+
+## Install
+
+First [Connect bot](https://github.com/apps/nexos-bot)
 
 ## Setup
 
