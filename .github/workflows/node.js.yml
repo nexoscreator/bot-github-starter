@@ -27,7 +27,7 @@ jobs:
     - name: upload GitHub Pages site
       uses: actions/upload-pages-artifact@v1
       with:
-       path: ./.output/public
+       path: ./lib
        token: ${{ github.token }}
        
   deploy:

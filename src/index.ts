@@ -34,6 +34,16 @@ export default (app: Probot) => {
   // release
   published(app);
 
+  // Example: Respond to pull request merged event
+  app.on("pull_request.closed", async (context) => {
+    if (context.payload.pull_request.merged) {
+      const prComment = context.issue({
+        body: "Congratulations on merging this pull request!"
+      });
+      await context.octokit.issues.createComment(prComment);
+    }
+  });
+
   app.onAny(async (context) => {
     app.log.info({ event: context.name});
   });
