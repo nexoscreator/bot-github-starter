@@ -1,6 +1,12 @@
-import { Probot } from "probot";
+//src/issue.ts
 
-const iopened = async (context: any) => {
+export const iclosed = async (context: any) => {
+    const issueComment = context.issue({ body: 'This issue has been closed.' });
+    await context.octokit.issues.createComment(issueComment);
+};
+
+
+export const iopened = async (context: any) => {
     // When issue opned
     const admin = context.payload.issue;
     const issue = context.issue();
@@ -26,8 +32,4 @@ const iopened = async (context: any) => {
         body: `Thanks for opening this issue, @${admin.user.login}! We will look into it.`,
     });
     await context.octokit.issues.createComment(issueComment);
-};
-
-export default (app: Probot) => {
-    app.on("issues.opened", iopened);
 };
