@@ -1,12 +1,12 @@
 //src/issue.ts
 
-export const iclosed = async (context: any) => {
+export const IssueClosed = async (context: any) => {
     const issueComment = context.issue({ body: 'This issue has been closed.' });
     await context.octokit.issues.createComment(issueComment);
 };
 
 
-export const iopened = async (context: any) => {
+export const IssueOpned = async (context: any) => {
     // When issue opned
     const admin = context.payload.issue;
     const issue = context.issue();
@@ -32,4 +32,25 @@ export const iopened = async (context: any) => {
         body: `Thanks for opening this issue, @${admin.user.login}! We will look into it.`,
     });
     await context.octokit.issues.createComment(issueComment);
+};
+
+export const labels = async (context: any) => {
+    const issue = context.issue();
+    const { title, body } = context.payload.issue;
+
+    // Example rules for labeling
+    const labels: string[] = [];
+    if (title.includes("bug") || body.includes("bug")) {
+        labels.push("bug");
+    }
+    if (title.includes("feature") || body.includes("feature")) {
+        labels.push("enhancement");
+    }
+
+    if (labels.length > 0) {
+        await context.octokit.issues.addLabels({
+            ...issue,
+            labels,
+        });
+    }
 };

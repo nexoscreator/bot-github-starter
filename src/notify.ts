@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const issuenotify = async (context: any) => {
+export const IssueNotify = async (context: any) => {
     const issue = context.payload.issue;
     const { title, body, html_url } = issue;
 
@@ -16,7 +16,7 @@ export const issuenotify = async (context: any) => {
     //   await sendEmail("New Issue Opened", message);
 };
 
-export const pullnotify = async (context: any) => {
+export const PullNotify = async (context: any) => {
     const pr = context.payload.pull_request;
     const { title, body, html_url } = pr;
 
