@@ -1,4 +1,4 @@
-export const propened = async (context: any) => {
+export const PullOpned = async (context: any) => {
     // When pull request opned
     const sender = context.payload.pull_request.user.login;
     const comment = context.issue({
@@ -8,7 +8,7 @@ export const propened = async (context: any) => {
     await context.octokit.issues.createComment(comment);
 };
 
-export const prclosed = async (context: any) => {
+export const PullClosed = async (context: any) => {
     const pullRequest = context.payload.pull_request;
 
     if (pullRequest.merged) {

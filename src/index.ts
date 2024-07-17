@@ -1,42 +1,34 @@
 import { Probot } from "probot";
-//for issue
-import { iopened, iclosed } from "./issue.js";
-// for pull requst
-import { propened, prclosed } from "./pull-request.js";
-// import review from "./Pull Request/review.js";
-// import merge from "./Pull Request/merge.js";
-import changelog from "./Pull Request/changelog.js";
-// for notification
-import { issuenotify, pullnotify } from "./notify.js";
-//for release
-import published from "./Release/published.js";
+import { IssueOpned, IssueClosed, labels } from "./issue.js";
+import { PullOpned, PullClosed } from "./pull-request.js";
+import { IssueNotify, PullNotify } from "./notify.js";
 import draft from "./Release/draft.js";
-import review  from "./Pull Request/review.js";
+import merge from "./Expirmental/merge.js";
+import version from "./Release/version.js";
+import changelog from "./changelog.js";
 
 export default (app: Probot) => {
-
   app.log.info("Yay, my app is loaded");
 
   // issue
-  app.on("issues.opened", iopened);
-  app.on("issues.closed", iclosed);
+  app.on("issues.opened", IssueOpned);
+  app.on("issues.closed", IssueClosed);
+  app.on("issues.opened", labels);
 
   // pull request
-  app.on("pull_request.opened", propened);
-  app.on("pull_request.closed", prclosed);
+  app.on("pull_request.opened", PullOpned);
+  app.on("pull_request.closed", PullClosed);
   // review(app);
-  // merge(app);
-  changelog(app);
+  merge(app);
 
   // notification
-  app.on("issues.opened", issuenotify);
-  app.on("pull_request.opened", pullnotify);
+  app.on("issues.opened", IssueNotify);
+  app.on("pull_request.opened", PullNotify);
 
   // release
-  published(app);
   draft(app);
-  review(app);
-
+  version(app);
+  changelog(app);
 
   // expirement workflow
   // Listen for issue and pull request comments
@@ -63,7 +55,7 @@ export default (app: Probot) => {
     }
   });
 
-app.onAny(async (context) => {
-  app.log.info({ event: context.name });
-});
+  app.onAny(async (context) => {
+    app.log.info({ event: context.name });
+  });
 };
