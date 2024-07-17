@@ -1,18 +1,14 @@
 {
   "action": "opened",
   "issue": {
-    "number": 1,
-    "user": {
-      "login": "hiimbex"
-    }
+    "title": "Test issue",
+    "body": "This is a test issue",
+    "html_url": "https://github.com/test/repo/issues/1"
   },
   "repository": {
-    "name": "testing-things",
+    "name": "repo",
     "owner": {
-      "login": "hiimbex"
+      "login": "test"
     }
-  },
-  "installation": {
-    "id": 2
   }
 }
