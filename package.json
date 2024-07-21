@@ -1,12 +1,12 @@
 {
-  "name": "nexos-bot-app",
+  "name": "bot-github-starter",
   "version": "0.0.2",
   "private": true,
   "description": "A Nexos Automation Bot",
   "author": "Nexos Creator",
   "license": "ISC",
   "main": "./lib/index.js",
-  "homepage": "https://github.com/nexoscreator/bot-nexos-app",
+  "homepage": "https://github.com/nexoscreator/bot-nexos-github-starter",
   "keywords": [
     "probot",
     "github",
@@ -32,5 +32,7 @@
   "engines": {
     "node": ">= 18"
   },
-  "type": "commonjs"
+
+  "type": "module"
 }
+
