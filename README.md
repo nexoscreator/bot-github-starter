@@ -1,7 +1,3 @@
-Here's a detailed and polished `README.md` for your project, tailored to the provided directory structure and guidelines. It includes emojis and formatting to make it appealing for an open-source or public repository.
-
----
-
 # 🚀 GitHub Bot Template
 
 [![Probot](https://img.shields.io/badge/Built%20with-Probot-blue.svg)](https://probot.github.io/)
@@ -115,7 +111,3 @@ This repository is licensed under the MIT License. See [`LICENSE.md`](LICENSE.md
 
 - Thanks to the [Probot](https://probot.github.io/) team for their amazing framework.
 - Inspired by the open-source community.
-
----
-
-This `README.md` is clear, engaging, and designed to encourage contributions while providing all necessary setup instructions. Let me know if you'd like additional tweaks! 🚀
